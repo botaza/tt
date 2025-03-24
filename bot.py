@@ -118,9 +118,15 @@ async def process_start_command2(message: types.Message):
  if message.from_user.id in blacklist:
    await message.reply("ты не можешь использовать бот...(")
  else:
-  await bot.send_message(message.chat.id, f'Hello {message.chat.first_name} !')
-  await bot.send_message(message.chat.id, 'This bot is for ......... ')
+  await bot.send_message(message.chat.id, f'Привет {message.chat.first_name} !')
+  await bot.send_message(message.chat.id, 'Центр туристических и деловых поездок TOP TOUR приветствует вас! ')
+  await bot.send_message(message.chat.id, '📞 +7 902 666 33 25 ')
+  await bot.send_message(message.chat.id, '📞 +7 902 666 33 25 \nМы находимся по адресу:
+690106, г. Владивосток, пр-кт Красного Знамени, д. 30, офис 1 \nБудем рады видеть вас в нашем офисе! Мы работаем с понедельника по пятницу с 10:00 до 19:00.
+Для отправки оригиналов документов вы также можете воспользоваться услугами любой курьерской службы, направив конверт по указанному адресу:
+690106, г. Владивосток, пр-кт Красного Знамени, д. 30, офис 1 \nС полным перечнем услуг и их стоимостью вы можете ознакомиться на нашем сайте: https://toptour.ru/')
   await bot.send_message(message.chat.id, 'Загружаю обложку... ')
+
   with urllib.request.urlopen("https://cloud-api.yandex.net/v1/disk/public/resources?public_key=https://disk.yandex.ru/i/dSJC8MDM80l6Hw") as url:
         data0 = json.loads(url.read().decode())
         jsonData = data0["file"]
@@ -166,7 +172,7 @@ async def process_callback_button1(callback_query: types.CallbackQuery):
 @dp.callback_query_handler(lambda c: c.data == 'btn06', state="*")
 async def process_callback_button1(callback_query: types.CallbackQuery):
     await bot.answer_callback_query(callback_query.id)
-    await bot.send_message(callback_query.from_user.id, 'Выбери вопрос!', reply_markup=kb.inline_kb_full_06)
+    await bot.send_message(callback_query.from_user.id, 'Выбери направление', reply_markup=kb.inline_kb_full_06)
 
 @dp.callback_query_handler(lambda c: c.data == 'btn061', state="*")
 async def process_callback_button1(callback_query: types.CallbackQuery):

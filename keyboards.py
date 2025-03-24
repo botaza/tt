@@ -4,10 +4,12 @@
 
 ##0(1,2)
 inline_kb_full_0= InlineKeyboardMarkup(row_width=2)
-inline_btn_05 = InlineKeyboardButton('🦸‍♂️ Связь с АрТомом Сендлер-Харди', callback_data='btn05')
-inline_btn_06 = InlineKeyboardButton('❓ Вопросики', callback_data='btn06')
-inline_kb_full_0.row(inline_btn_06)
+inline_btn_05 = InlineKeyboardButton('🦸‍♂️ Консультация менеджера', callback_data='btn05')
+inline_btn_06 = InlineKeyboardButton('🌐 Визы', callback_data='btn06')
+inline_btn_07 = InlineKeyboardButton('💸 Способы оплаты', callback_data='btn07')
 inline_kb_full_0.row(inline_btn_05)
+inline_kb_full_0.row(inline_btn_06)
+inline_kb_full_0.row(inline_btn_07)
 
 
 
