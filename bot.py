@@ -120,11 +120,9 @@ async def process_start_command2(message: types.Message):
  else:
   await bot.send_message(message.chat.id, f'Привет {message.chat.first_name} !')
   await bot.send_message(message.chat.id, 'Центр туристических и деловых поездок TOP TOUR приветствует вас! ')
-  await bot.send_message(message.chat.id, '📞 +7 902 666 33 25 ')
-  await bot.send_message(message.chat.id, '📞 +7 902 666 33 25 \nМы находимся по адресу:\n 690106, г. Владивосток, пр-кт Красного Знамени, д. 30, офис 1 \nБудем рады видеть вас в нашем офисе! Мы работаем с понедельника по пятницу с 10:00 до 19:00. \nДля отправки оригиналов документов вы также можете воспользоваться услугами любой курьерской службы, направив конверт по указанному адресу: \n690106, г. Владивосток, пр-кт Красного Знамени, д. 30, офис 1 \nС полным перечнем услуг и их стоимостью вы можете ознакомиться на нашем сайте: https://toptour.ru/')
   await bot.send_message(message.chat.id, 'Загружаю обложку... ')
 
-  with urllib.request.urlopen("https://cloud-api.yandex.net/v1/disk/public/resources?public_key=https://disk.yandex.ru/i/dSJC8MDM80l6Hw") as url:
+  with urllib.request.urlopen("https://cloud-api.yandex.net/v1/disk/public/resources?public_key=https://disk.yandex.ru/i/kC55Cmbc-slHyg") as url:
         data0 = json.loads(url.read().decode())
         jsonData = data0["file"]
         url = jsonData
@@ -138,13 +136,48 @@ async def process_start_command2(message: types.Message):
   await FSMAdmin.record0.set()
   await bot.send_message(message.chat.id, 'Что я умею?', reply_markup=kb.inline_kb_full_0)
 
-@dp.callback_query_handler(lambda c: c.data == 'btn060', state="*")
+@dp.callback_query_handler(lambda c: c.data == 'btn00', state="*")
 async def process_callback_button1(callback_query: types.CallbackQuery):
     await bot.answer_callback_query(callback_query.id)
     await bot.send_message(callback_query.from_user.id, 'Продолжаем знакомиться!', reply_markup=kb.inline_kb_full_0)
 
 
-   
+
+
+
+@dp.callback_query_handler(lambda c: c.data == 'btna1', state="*")
+async def process_callback_button1(callback_query: types.CallbackQuery):
+    await bot.answer_callback_query(callback_query.id)
+    await bot.send_message(callback_query.from_user.id, 'Выбери формат связи с нами', reply_markup=kb.inline_kb_full_b)
+
+@dp.callback_query_handler(lambda c: c.data == 'btna2', state="*")
+async def process_callback_button1(callback_query: types.CallbackQuery):
+    await bot.answer_callback_query(callback_query.id)
+    await bot.send_message(callback_query.from_user.id, '📞 +7 902 666 33 25 \nМы находимся по адресу:\n 690106, г. Владивосток, пр-кт Красного Знамени, д. 30, офис 1 \nБудем рады видеть вас в нашем офисе! Мы работаем с понедельника по пятницу с 10:00 до 19:00. \nДля отправки оригиналов документов вы также можете воспользоваться услугами любой курьерской службы, направив конверт по указанному адресу: \n690106, г. Владивосток, пр-кт Красного Знамени, д. 30, офис 1 \nС полным перечнем услуг и их стоимостью вы можете ознакомиться на нашем сайте: https://toptour.ru/')
+    await bot.send_message(callback_query.from_user.id, 'Возвращаемся в предыдущее меню', reply_markup=kb.inline_kb_full_с)
+
+
+@dp.callback_query_handler(lambda c: c.data == 'btna3', state="*")
+async def process_callback_button1(callback_query: types.CallbackQuery):
+    await bot.answer_callback_query(callback_query.id)
+    await bot.send_message(callback_query.from_user.id, 'Выбери услугу', reply_markup=kb.inline_kb_full_d)   
+    
+    
+@dp.callback_query_handler(lambda c: c.data == 'btna4', state="*")
+async def process_callback_button1(callback_query: types.CallbackQuery):
+    await bot.answer_callback_query(callback_query.id)
+    await bot.send_message(callback_query.from_user.id, 'Выбери направление', reply_markup=kb.inline_kb_full_e)  
+
+@dp.callback_query_handler(lambda c: c.data == 'btna5', state="*")
+async def process_callback_button1(callback_query: types.CallbackQuery):
+    await bot.answer_callback_query(callback_query.id)
+    await bot.send_message(callback_query.from_user.id, 'Узнать способы оплаты', reply_markup=kb.inline_kb_full_f)  
+
+
+@dp.callback_query_handler(lambda c: c.data == 'btna6', state="*")
+async def process_callback_button1(callback_query: types.CallbackQuery):
+    await bot.answer_callback_query(callback_query.id)
+    await bot.send_message(callback_query.from_user.id, 'Оставить обратную связь', reply_markup=kb.inline_kb_full_g) 
    
 @dp.callback_query_handler(lambda c: c.data == 'btn05', state="*")
 async def process_callback_button1(callback_query: types.CallbackQuery):
